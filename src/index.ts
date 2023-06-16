@@ -79,9 +79,11 @@ const scanner = async (): Promise<void> => {
 
 			await db.vcs.add(href, id);
 		}));
+	} else {
+		await db.vcs.add('none', id);
 	}
 
-	await scanner();
+	await scanner(); // \copy domains TO 'domains.csv' CSV DELIMITER ','
 };
 
 (async () => {

@@ -55,8 +55,13 @@ const checkGit = async (domain: string): Promise<string[]> => {
 	].map(async url => {
 		try {
 			const response = await fetch(url);
-			if (response.ok) {
-				return url;
+			if (response.status === 200) {
+				if (response.url === url) {
+					console.log(`[INFO] Git found at ${url}`);
+					return url;
+				}
+
+				return '';
 			}
 		} catch (error) {
 			console.log('error fetching page', error);

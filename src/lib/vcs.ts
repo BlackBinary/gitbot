@@ -13,7 +13,7 @@ export default class Vcs {
 		id serial PRIMARY KEY,
     domain_id INT NOT NULL,
 		FOREIGN KEY (domain_id) REFERENCES domains (id),
-    href VARCHAR (2048) UNIQUE
+    href VARCHAR (2048)
 		);`);
 	}
 
